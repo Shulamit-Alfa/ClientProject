@@ -22,8 +22,6 @@ export function FormDialog() {
         setOpen(false);
     };
 
-    // dispatch(getTask());
-
     const handleSubmit = () => {
         dispatch(addTask(task));
         handleClose();
@@ -72,15 +70,9 @@ export function FormDialog() {
 
 
 const ToDoComp = () => {
-    // const editedTask = useSelector((state) => state.toDoSlice.editedTask);
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getTask());
-    // }, [dispatch]);
     dispatch(getTask());
-
     const myTasks = useSelector((state) => state.toDoSlice?.tasks)
-    // const [myTasks, setMyTasks] = useState(useSelector((state) => state.toDoSlice?.tasks));
 
     if (!myTasks || !myTasks.length) {
         return <div>Loading...</div>; // Handle loading state

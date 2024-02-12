@@ -3,10 +3,6 @@ import { useEffect, useState } from 'react';
 
 const UseGet = () => {
 
-    // useEffect(() => {
-    //     get()
-    // }, [])
-
     const [res, setRes] = useState();
 
     const get = async (url) => {

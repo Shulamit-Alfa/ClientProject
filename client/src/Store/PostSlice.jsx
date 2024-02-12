@@ -29,24 +29,15 @@ const postSlice = createSlice({
         deletePost: (state, action) => {
             const httpDelete = UseDelete();
             httpDelete('https://localhost:7112/api/Post' + action.payload);
-            // state.posts = state.posts.filter((item) => {
-            //     return item.id !== action.payload;
-            // })
             state.posts = state.posts.filter(post => post.id !== action.payload);
         },
         editPost: (state, action) => {
             const httpPut = UsePut();
-            httpPut('https://localhost:7112/api/Post/'+ action.payload.id,action.payload);
+            httpPut('https://localhost:7112/api/Post/' + action.payload.id, action.payload);
             state.posts = state?.posts?.map(post =>
                 post.id === action?.payload?.id ? action.payload : post
             );
 
-            // state.posts.map((item) => {
-            //     if (item.id === action.payload.id) {
-            //         item.context = action.payload.context;
-            //         // זה לא טוב כאן אמור להיות קריאת שרת
-            //     }
-            // })
         },
         addLike: (state, action) => {
             state.posts.filter((item) => {

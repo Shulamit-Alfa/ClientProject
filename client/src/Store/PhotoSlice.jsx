@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import UseDelete from '../Hooks/Delete';
 import UseGet from '../Hooks/Get';
 import UsePost from '../Hooks/Post';
-import UsePut from '../Hooks/Put';
-import UseDelete from '../Hooks/Delete';
-import { act } from 'react-dom/test-utils';
 
 const initialState = {
   photo: []
@@ -20,10 +18,8 @@ const photoSlice = createSlice({
     },
     addPhoto: (state, action) => {
       const httpPost = UsePost();
-      // const newPhoto = { ...action.payload }
-      const newPhoto={...action.payload}
+      const newPhoto = { ...action.payload }
       httpPost('https://localhost:7112/api/Photo', newPhoto);
-      // state.photo.push(action.payload)
     },
     deletePhoto: (state, action) => {
       const httpDelete = UseDelete();

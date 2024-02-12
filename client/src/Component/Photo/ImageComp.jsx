@@ -1,10 +1,9 @@
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import Button from '@mui/material/Button';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useDispatch } from 'react-redux';
-import AddIcon from '@mui/icons-material/Add';
-import Button from '@mui/material/Button';
 import { addPhoto } from '../../Store/PhotoSlice';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 
 function MyDropzone() {
@@ -24,9 +23,6 @@ function MyDropzone() {
         const fileReadPromise = new Promise((resolve, reject) => {
             reader.onload = () => {
                 resolve(reader.result);
-                // const result = reader.result;
-                // setImagePreview(result);
-                // handleAddPhoto(result);
             };
             reader.onerror = reject;
 
@@ -52,10 +48,6 @@ function MyDropzone() {
             {isDragActive ? (
                 <p>Drop the files here...</p>
             ) : (
-                // <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
-                //     Add Photo
-                //     {/* <VisuallyHiddenInput type="file" /> */}
-                // </Button>
                 <div>
                     <Button variant="outlined" >
                         <CloudUploadIcon />  Add Photo

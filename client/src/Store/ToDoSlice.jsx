@@ -24,7 +24,6 @@ const toDoSlice = createSlice({
             const now = new Date();
             const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
             const formattedTime = now.toJSON(options);
-            // const newTask = { title: action.payload.title, description: action.payload.description, isComplete: false, createDate: formattedTime };
             const newTask = { ...action.payload };
             httpPost('https://localhost:7112/api/ToDo', newTask);
 

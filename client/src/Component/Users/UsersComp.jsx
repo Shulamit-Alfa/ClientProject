@@ -92,30 +92,14 @@ export function FormDialog() {
 const UsersComp = () => {
 
     const myUsers = useSelector((state) => state.userSlice.rows);
-    // const editedTask = useSelector((state) => state.toDoSlice.editedTask);
     const dispatch = useDispatch();
     dispatch(getUser());
-   
 
-    // const handleEditTask=(editedTask)=>{
-    //     dispatch(setEditTask(editedTask));
-    // }
     return (
         <div>
             <h1>Users</h1>
             <FormDialog />
             <Users />
-            {/* <div style={{ display: 'flex', flaxWrap: 'wrap', justifyContent: 'space-between', gap: '16px' }}> */}
-                {/* {myUsers.map((u) => {
-                    
-                    return(
-                        <>
-                        <Users key={u.id} user={u} />
-                        </>
-                    )
-                    
-                })} */}
-            {/* </div> */}
         </div>
     )
 };

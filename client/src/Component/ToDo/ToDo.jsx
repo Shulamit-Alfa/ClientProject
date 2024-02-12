@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import Typography from '@mui/material/Typography';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { deleteTask, editTask } from '../../Store/ToDoSlice';
 import { EditDialog } from './EditDialog';
 
@@ -22,19 +22,8 @@ export default function ToDo(props) {
   const [edit, setEdit] = useState(false);
   const [task, setTask] = useState(props.task);
 
-  // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-  // const [title, setTitle] = useState(props.task.title);
-  // const [description, setDescription] = useState(props.task.description);
-  // const [time, setTime] = useState(props.task.time);
-  // const [isComplete, setIsComplete] = useState(props.task.isComplete);
-  // const [editTask, setEditTask] = useState(null);
-  // const [open, setOpen] = useState(false);
-
-
   const handleEdit = () => {
     setEdit(false)
-    // dispatch(editTask({ id: props.task.id, title: title, description: description, time: time, isComplete: isComplete }))
-    // dispatch(editTask(props))
     dispatch(editTask(task))
   }
 
@@ -55,19 +44,16 @@ export default function ToDo(props) {
         <CardHeader
           title={
             <React.Fragment>
-              <Checkbox /*{...label}*/ sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />
+              <Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />
               {task.title}
-              {/* {title} */}
             </React.Fragment>
           }
-          //subheader={time}
           subheader={task.createDate}
 
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             {task.description}
-            {/* {description}  */}
           </Typography>
 
           <CardActions disableSpacing>
@@ -95,7 +81,7 @@ export default function ToDo(props) {
 
       </Card>
       {
-       edit && <EditDialog /*edit={edit}*/ setEdit={setEdit} /*task={props.task}*/ task={task} /*setTask={setTask}*/ />
+        edit && <EditDialog setEdit={setEdit} task={task} />
       }
     </>
   );
